@@ -1,13 +1,13 @@
 Ext.define('Tf.view.login.Login', {
   extend: 'Ext.panel.Panel',
-  controller: 'main',
+  controller: 'login',
   xtype: 'login',
   id: 'loginWindow',
   title: 'Login page',
   viewModel: {
     data: {
       login: '',
-      password: '',
+      password: ''
     }
   },
   items: [{

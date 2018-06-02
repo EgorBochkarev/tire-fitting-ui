@@ -1,6 +1,6 @@
 Ext.define('Tf.view.registration.Registration', {
   extend: 'Ext.panel.Panel',
-  controller: 'main',
+  controller: 'registration',
   id: 'registrationWindow',
   title: 'Registration page',
   xtype: 'registration',
@@ -9,7 +9,7 @@ Ext.define('Tf.view.registration.Registration', {
       login: '',
       password: '',
       repeatPassword: '',
-      radioUser: true,
+      radioUser: true
     }
   },
   layout: 'column',
