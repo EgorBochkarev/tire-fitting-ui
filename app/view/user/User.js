@@ -19,27 +19,27 @@ Ext.define('Tf.view.user.User', {
                 text: 'Name',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'name',
+                dataIndex: 'name'
             }, {
                 text: 'Car Info ID',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'carInfoId',
+                dataIndex: 'carInfoId'
             }, {
                 text: 'Car Brand',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'carBrand',
+                dataIndex: 'carBrand'
             }, {
                 text: 'Tire radius',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'tireRadius',
+                dataIndex: 'tireRadius'
             }, {
                 text: 'Tire Type',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'tireType',
+                dataIndex: 'tireType'
             }]
 
         }, {
@@ -49,42 +49,53 @@ Ext.define('Tf.view.user.User', {
 
         }]
     }, {
-        title: 'User orders',
+        title: 'Orders history',
         items: [{
             xtype: 'gridpanel',
-            title: 'User orders',
             store: 'order',
+            plugins: 'gridfilters',
             columns: [{
                 text: 'Order ID',
                 width: 75,
                 sortable: true,
-                dataIndex: 'orderId'
+                dataIndex: 'orderId',
+                hidden: true
             }, {
                 text: 'Service ID',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'serviceId',
+                dataIndex: 'serviceId'
             }, {
                 text: 'Status',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'status',
+                dataIndex: 'status'
             }, {
                 text: 'Location',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'location',
+                dataIndex: 'location'
             }, {
                 text: 'Rating',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'rating',
+                dataIndex: 'rating'
             }, {
                 text: 'Description',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'description',
-            },],
+                dataIndex: 'description'
+            }, {
+                text: 'User ID',
+                flex: 1,
+                sortable: true,
+                dataIndex: 'userId',
+                hidden: true,
+                filter: {
+                    type: 'string',
+                    value: Ext.util.Cookies.get('user')
+                }
+            }]
 
         }, {
           xtype: 'button',
