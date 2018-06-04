@@ -16,8 +16,8 @@ Ext.define('Tf.view.user.User', {
         model: 'Tf.model.User',
         proxy: {
           type: 'rest',
-          url: 'http://localhost:8080/user/' + Ext.util.Cookies.get('user'),
-        },
+          url: 'http://localhost:8080/user/' + Ext.util.Cookies.get('user')
+        }
       }
     }
   },
@@ -73,6 +73,7 @@ Ext.define('Tf.view.user.User', {
             xtype: 'textfield', //Trying to bind data from store to textfield
             bind: {
               value: '{name}'
+              //value: '{singleUser.data.name}'
             }
         }]
     },{
