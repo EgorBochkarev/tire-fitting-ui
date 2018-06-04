@@ -1,9 +1,26 @@
 Ext.define('Tf.view.user.User', {
   extend: 'Ext.tab.Panel',
+  requires: [
+    'Tf.model.User'
+  ],
   xtype: 'user',
   controller: 'main',
   id: 'user',
   layout: 'fit',
+  viewModel: {
+    stores: {
+      singleUser: {              //Local store for current user
+        autoLoad: true,
+        autoSync: true,
+        cors: true,
+        model: 'Tf.model.User',
+        proxy: {
+          type: 'rest',
+          url: 'http://localhost:8080/user/' + Ext.util.Cookies.get('user'),
+        },
+      }
+    }
+  },
     items: [{
         title: 'User info',
         items: [{
@@ -14,7 +31,8 @@ Ext.define('Tf.view.user.User', {
                 text: 'User ID',
                 width: 75,
                 sortable: true,
-                dataIndex: 'userId'
+                dataIndex: 'userId',
+                hidden: true
             }, {
                 text: 'Name',
                 flex: 1,
@@ -24,7 +42,8 @@ Ext.define('Tf.view.user.User', {
                 text: 'Car Info ID',
                 flex: 1,
                 sortable: true,
-                dataIndex: 'carInfoId'
+                dataIndex: 'carInfoId',
+                hidden: true
             }, {
                 text: 'Car Brand',
                 flex: 1,
@@ -49,6 +68,14 @@ Ext.define('Tf.view.user.User', {
 
         }]
     }, {
+        title: 'Current order',
+        items: [{
+            xtype: 'textfield', //Trying to bind data from store to textfield
+            bind: {
+              value: '{name}'
+            }
+        }]
+    },{
         title: 'Orders history',
         items: [{
             xtype: 'gridpanel',
