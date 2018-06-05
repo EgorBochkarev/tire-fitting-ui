@@ -1,27 +1,18 @@
 Ext.define('Tf.view.service.Service', {
     extend: 'Ext.tab.Panel',
     xtype: 'service',
-    requires: [
-        // 'Ext.Button',
-        // 'Ext.field.Text'
-    ],
-
-    viewModel: {
-        data: {
-            //TODO REST integration
-        }
-    },
+    title: 'Service',
+    controller: 'main',
+    id: 'service',
+    layout: 'column',
 
     items: [{
         title: 'Service info',
-        layout: 'fit',
+        padding: '50px 250px 0px 250px',
         items: [{
             xtype: 'gridpanel',
-            renderTo: document.body,
-            layout: 'fit',
             frame: true,
             title: 'Service info',
-            iconCls: 'icon-user',
             store: 'service',
             columns: [{
                 text: 'Service ID',
@@ -33,40 +24,38 @@ Ext.define('Tf.view.service.Service', {
                 flex: 1,
                 sortable: true,
                 dataIndex: 'name',
-            },{
+            }, {
                 text: 'Location',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'location',
-            },{
+            }, {
                 text: 'Serving Staff',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'servingStaff',
-            },{
+            }, {
                 text: 'Total Rating',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'totalRating',
             }],
 
-        },{
+        }, {
             xtype: 'button',
+            margin: '20px 0 0 1300px',
             text: 'Go back to Login',
             handler: 'onLoginClick'
 
         }]
     }, {
         title: 'Current Orders',
-        layout: 'fit',
-        items: [{
-            xtype: 'button',
-            text: 'Go back to Login',
-            handler: 'onLoginClick'
-        },{
+        padding: '50px 250px 0px 250px',
+        // layout: 'fit',
+        items: [ {
             xtype: 'gridpanel',
             renderTo: document.body,
-            layout: 'fit',
+            // layout: 'fit',
             frame: true,
             title: 'User orders',
             iconCls: 'icon-user',
@@ -81,40 +70,42 @@ Ext.define('Tf.view.service.Service', {
                 flex: 1,
                 sortable: true,
                 dataIndex: 'serviceId',
-            },{
+            }, {
                 text: 'Status',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'status',
-            },{
+            }, {
                 text: 'Location',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'location',
-            },{
+            }, {
                 text: 'Rating',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'rating',
-            },{
+            }, {
                 text: 'Description',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'description',
             },],
 
+        }, {
+            xtype: 'button',
+            text: 'Go back to Login',
+            margin: '20px 0 0 1300px',
+            handler: 'onLoginClick'
         },]
     }, {
         title: 'Available Orders',
-        layout: 'fit',
-        items: [{
-            xtype: 'button',
-            text: 'Go back to Login',
-            handler: 'onLoginClick'
-        },{
+        padding: '50px 250px 0px 250px',
+        // layout: 'fit',
+        items: [ {
             xtype: 'gridpanel',
             renderTo: document.body,
-            layout: 'fit',
+            // layout: 'fit',
             frame: true,
             title: 'User orders',
             iconCls: 'icon-user',
@@ -129,28 +120,33 @@ Ext.define('Tf.view.service.Service', {
                 flex: 1,
                 sortable: true,
                 dataIndex: 'serviceId',
-            },{
+            }, {
                 text: 'Status',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'status',
-            },{
+            }, {
                 text: 'Location',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'location',
-            },{
+            }, {
                 text: 'Rating',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'rating',
-            },{
+            }, {
                 text: 'Description',
                 flex: 1,
                 sortable: true,
                 dataIndex: 'description',
             },],
 
+        }, {
+            xtype: 'button',
+            text: 'Go back to Login',
+            margin: '20px 0 0 1300px',
+            handler: 'onLoginClick'
         },]
     }]
 });
