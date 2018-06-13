@@ -4,15 +4,13 @@ Ext.define('Tf.view.service.Service', {
     title: 'Service',
     controller: 'main',
     id: 'service',
-    layout: 'column',
-
     items: [{
         title: 'Service info',
-        padding: '50px 250px 0px 250px',
+        layout: 'fit',
+        bodyPadding: 50,
         items: [{
+            columnWidth: 1,
             xtype: 'gridpanel',
-            frame: true,
-            title: 'Service info',
             store: 'service',
             columns: [{
                 text: 'Service ID',
@@ -39,38 +37,42 @@ Ext.define('Tf.view.service.Service', {
                 flex: 1,
                 sortable: true,
                 dataIndex: 'totalRating',
-            }],
-
-        }, {
-            xtype: 'button',
-            margin: '20px 0 0 1300px',
+            }]
+        }],
+        buttons: [{
             text: 'Go back to Login',
+            scale: 'medium',
+            width: 160,
             handler: 'onLoginClick'
-
         }]
     }, {
         title: 'Current Orders',
-        padding: '50px 250px 0px 250px',
-        // layout: 'fit',
-        items: [ {
+        layout: 'column',
+        bodyPadding: '50',
+        fieldDefaults: {
+            labelAlign: 'left',
+            labelWidth: 150,
+            anchor: '100%',
+            msgTarget: 'side'
+        },
+        items: [{
             xtype: 'gridpanel',
+            columnWidth: 0.75,
             renderTo: document.body,
-            // layout: 'fit',
-            frame: true,
-            title: 'User orders',
-            iconCls: 'icon-user',
             store: 'order',
             columns: [{
                 text: 'Order ID',
-                width: 100,
+                // width: 100,
                 sortable: true,
                 dataIndex: 'orderId'
-            }, {
-                text: 'Service ID',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'serviceId',
-            }, {
+            },
+            //     {
+            //     text: 'Service ID',
+            //     flex: 1,
+            //     sortable: true,
+            //     dataIndex: 'serviceId',
+            // },
+                {
                 text: 'Status',
                 flex: 1,
                 sortable: true,
@@ -90,63 +92,129 @@ Ext.define('Tf.view.service.Service', {
                 flex: 1,
                 sortable: true,
                 dataIndex: 'description',
-            },],
+            }]
+        },
+            {
+                columnWidth: 0.25,
+                xtype: 'fieldset',
+                title:'Details',
+                layout: 'anchor',
+                defaultType: 'textfield',
+                items: [
+                    {
+                        fieldLabel: 'Order ID',
+                        name: 'orderId'},
 
-        }, {
-            xtype: 'button',
-            text: 'Go back to Login',
-            margin: '20px 0 0 1300px',
-            handler: 'onLoginClick'
-        },]
+                    {fieldLabel: 'User ID',
+                        name: 'userId'},
+                    {
+                        fieldLabel: 'Status',
+                        name: 'status'
+                    },{
+                        fieldLabel: 'Location',
+                        name: 'location'
+                    },
+                    {
+                        fieldLabel: 'Rating',
+                        name: 'rating'
+                    },
+                    {
+                        fieldLabel: 'Description',
+                        name: 'description'
+                    },
+                    {
+                        xtype: 'button',
+                        scale: 'medium',
+                        text: 'Go back to Login',
+                        handler: 'onLoginClick'
+                    }
+                ]
+            }
+        ]
     }, {
         title: 'Available Orders',
-        padding: '50px 250px 0px 250px',
-        // layout: 'fit',
-        items: [ {
+        layout: 'column',
+        bodyPadding: '50',
+        fieldDefaults: {
+            labelAlign: 'left',
+            labelWidth: 150,
+            anchor: '100%',
+            msgTarget: 'side'
+        },
+        items: [{
             xtype: 'gridpanel',
+            columnWidth: 0.75,
             renderTo: document.body,
-            // layout: 'fit',
-            frame: true,
-            title: 'User orders',
-            iconCls: 'icon-user',
             store: 'order',
             columns: [{
                 text: 'Order ID',
-                width: 100,
+                // width: 100,
                 sortable: true,
                 dataIndex: 'orderId'
-            }, {
-                text: 'Service ID',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'serviceId',
-            }, {
-                text: 'Status',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'status',
-            }, {
-                text: 'Location',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'location',
-            }, {
-                text: 'Rating',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'rating',
-            }, {
-                text: 'Description',
-                flex: 1,
-                sortable: true,
-                dataIndex: 'description',
-            },],
+            },
+                //     {
+                //     text: 'Service ID',
+                //     flex: 1,
+                //     sortable: true,
+                //     dataIndex: 'serviceId',
+                // },
+                {
+                    text: 'Status',
+                    flex: 1,
+                    sortable: true,
+                    dataIndex: 'status',
+                }, {
+                    text: 'Location',
+                    flex: 1,
+                    sortable: true,
+                    dataIndex: 'location',
+                }, {
+                    text: 'Rating',
+                    flex: 1,
+                    sortable: true,
+                    dataIndex: 'rating',
+                }, {
+                    text: 'Description',
+                    flex: 1,
+                    sortable: true,
+                    dataIndex: 'description',
+                }]
+        },
+            {
+                columnWidth: 0.25,
+                xtype: 'fieldset',
+                title:'Details',
+                layout: 'anchor',
+                defaultType: 'textfield',
+                items: [
+                    {
+                        fieldLabel: 'Order ID',
+                        name: 'orderId'},
 
-        }, {
-            xtype: 'button',
-            text: 'Go back to Login',
-            margin: '20px 0 0 1300px',
-            handler: 'onLoginClick'
-        },]
-    }]
+                    {fieldLabel: 'User ID',
+                        name: 'userId'},
+                    {
+                        fieldLabel: 'Status',
+                        name: 'status'
+                    },{
+                        fieldLabel: 'Location',
+                        name: 'location'
+                    },
+                    {
+                        fieldLabel: 'Rating',
+                        name: 'rating'
+                    },
+                    {
+                        fieldLabel: 'Description',
+                        name: 'description'
+                    },
+                    {
+                        xtype: 'button',
+                        scale: 'medium',
+                        text: 'Go back to Login',
+                        handler: 'onLoginClick'
+                    }
+                ]
+            }
+        ]}]
 });

@@ -118,6 +118,7 @@ Ext.define('Tf.view.registration.Registration',{
                         emptyText: '{radioUser ? "Tire radius" : "Serving staff"}',
                     },
                     vtype:'passNumber',
+                    // vtype: 'time',
                     reference: 'regFieldThree'
                 }, {
                     bind: {
